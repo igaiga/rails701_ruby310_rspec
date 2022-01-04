@@ -7,4 +7,8 @@ RSpec.describe Book, type: :model do
       expect(book.title_with_author).to eq("RubyBook - matz")
     end
   end
+
+  it "Bookモデルをnewしたとき、nilではないこと" do
+    expect(Book.new).not_to eq(nil)
+  end
 end
