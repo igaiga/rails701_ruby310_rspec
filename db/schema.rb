@@ -19,4 +19,13 @@ ActiveRecord::Schema.define(version: 2022_01_07_004536) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "variations", force: :cascade do |t|
+    t.string "kind"
+    t.integer "book_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_variations_on_book_id"
+  end
+
+  add_foreign_key "variations", "books"
 end
