@@ -2,8 +2,9 @@ require "rails_helper"
 
 RSpec.describe "books", type: :system do
   it "GET /books" do
+    book = FactoryBot.create(:book)
     visit "/books" # /booksへHTTPメソッドGETでアクセス
-    expect(page).to have_text("Books") # 表示されたページに Books という文字があることを確認
+    expect(page).to have_text(book.title)
   end
 
   it "POST /books" do
